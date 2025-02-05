@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personality Quiz</title>
+  <style>
+    /* Styling for the intro text */
+    .intro-text {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .intro-text .highlight {
+      font-weight: bold;
+      color: #ff6f61;
+    }
+    .intro-text .italic {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-text">
+    <p>Welcome to the <span class="highlight">Flavor Personality Quiz</span>!</p>
+    <p>Discover your <span class="italic">true flavor personality</span> with just two questions.</p>
+  </div>
+
+  <form action="#" method="GET">
+    <!-- Open-ended question -->
+    <label for="favfood">What's your favorite food?</label><br>
+    <input type="text" id="favfood" name="favfood" placeholder="Type here"><br><br>
+
+    <!-- Multiple-choice question -->
+    <p>How do you feel about rainbows?</p>
+    <input type="radio" id="rainbows-love" name="rainbows" value="love them">
+    <label for="rainbows-love">I love them!</label><br>
+    <input type="radio" id="rainbows-meh" name="rainbows" value="meh">
+    <label for="rainbows-meh">Meh, they're okay.</label><br><br>
+
+    <!-- Submit button -->
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // Optional: Add JavaScript to handle form submission and display results
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting traditionally
+      const favFood = document.getElementById('favfood').value;
+      const rainbows = document.querySelector('input[name="rainbows"]:checked').value;
+      window.location.href = `?favfood=${encodeURIComponent(favFood)}&rainbows=${encodeURIComponent(rainbows)}`;
+    });
+  </script>
+</body>
+</html>
